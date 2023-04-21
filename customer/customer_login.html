@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Add custom styles if needed */
+    .container {
+      margin-top: 50px;
+      max-width: 400px;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+  <script type="text/javascript">
+
+    // Function to handle login
+    function login() {
+      const username = document.getElementById("login-username").value;
+      const password = document.getElementById("login-password").value;
+
+      // Retrieve stored user data from local storage
+      const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Loop through stored users to check for matching username and password
+      const matchedUser = storedUsers.find(user => user.username === username && user.password === password);
+
+      if (matchedUser) {
+        alert(`Welcome back, ${username}!`);
+        // Redirect to dashboard or perform other actions
+        window.location.href = "customer_welcome.html";
+
+      } else {
+        alert("Invalid username or password");
+      }
+    }
+
+    // Function to redirect to signup page
+    function redirectToSignup() {
+      window.location.href = "customer_signin.html";
+    }
+
+  </script>
+  <style>
+    body {
+      background-color: #262626;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 300px;
+      margin: 100px auto;
+      text-align: center;
+      opacity: 0;
+      animation: fadein 1s ease-in-out forwards;
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background-color: #404040;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: none;
+      background-color: #404040;
+      color: #fff;
+      outline: none;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .mt-3 {
+      margin-top: 3rem;
+    }
+
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .animated-bg:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, #0f0f0f 0%, #262626 100%);
+      opacity: 0.8;
+    }
+
+    .animated-bg:before {
+      animation: animated-bg 10s linear infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Login</h1>
+      <input type="text" id="login-username" class="form-control" placeholder="Username">
+      <input type="password" id="login-password" class="form-control" placeholder="Password">
+      <button class="btn btn-primary" onclick="login()">Login</button>
+      <p class="mt-3">Don't have an account? <a href="javascript:void(0)" onclick="redirectToSignup()">Sign up</a></p>
+    </div>
+  </div>
+  <div class="animated-bg"></div>
+</body>
+
+</html>

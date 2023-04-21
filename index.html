@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Add CSS styles for header and footer */
+        #header {
+            height: 100px;
+            background-color: lightgray;
+            padding: 20px;
+        }
+
+        #footer {
+            height: 50px;
+            background-color: lightgray;
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        /* Add CSS styles for buttons container */
+        #buttons-container {
+            display: flex;
+            justify-content: center; /* Horizontally center the buttons */
+            align-items: center; /* Vertically center the buttons */
+            height: calc(100vh - 250px); /* Adjust the height as needed */
+            /* Add background image */
+            background-image: url('assets/bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Add CSS styles for buttons */
+        #seller-btn,
+        #customer-btn {
+            margin: 0 10px; /* Add margin between buttons */
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: lightblue;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Add hover effect for buttons */
+        #seller-btn:hover,
+        #customer-btn:hover {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+    <!-- Buttons container -->
+    <div id="buttons-container">
+        <button id="seller-btn">Seller</button>
+        <button id="customer-btn">Customer</button>
+    </div>
+    <div id="footer"></div>
+
+    <script src="js/template.js"></script>
+    <script src="js/homepage.js"></script>
+</body>
+
+</html>
